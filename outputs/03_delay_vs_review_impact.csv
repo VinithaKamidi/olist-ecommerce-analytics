@@ -1,0 +1,5 @@
+delivery_bucket,order_count,avg_review_score,low_rating_pct
+1. Early (>5 days early),2746,4.36,6.7
+2. On-Time (0 to 5 days early),1464,4.41,5.87
+3. Minor Delay (1-5 days late),456,3.23,34.87
+4. Severe Delay (>5 days late),124,2.02,69.35
