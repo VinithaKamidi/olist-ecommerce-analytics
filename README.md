@@ -1,17 +1,35 @@
-# Olist E-Commerce Logistics, Pricing & Fulfilment Analysis
+# Olist E-Commerce Logistics & Analytics Pipeline
 
-**Tech Stack:** SQL (DuckDB / SQLite), Python (Pandas, Matplotlib, Seaborn), Power BI  
-**Author:** Kamidi Vinitha
+End-to-end analytics engineering and supply chain analysis of the Brazilian Olist e-commerce dataset using Python, DuckDB, SQL, and Power BI.
+
+---
+
+## Project Overview
+This project analyzes 100K+ e-commerce orders to identify logistical bottlenecks, state-wise delivery SLA breaches, freight-to-price cost burdens, and the direct impact of delivery delays on customer satisfaction.
 
 ## Project Structure
-- `data/` — Complete relational Olist datasets (`orders`, `order_items`, `customers`, `sellers`, `products`, `reviews`).
-- `sql/olist_duckdb_analysis.sql` — Production-ready DuckDB SQL queries covering stage-wise turnaround times, state SLA breaches, freight-to-price ratios, and review score degradation.
-- `scripts/run_olist_pipeline.py` — End-to-end Python pipeline that ingests raw CSVs into DuckDB and builds the denormalized Power BI dataset.
-- `outputs/` — Pre-generated SQL analysis summary CSVs and high-resolution Matplotlib/Seaborn charts ready for GitHub or presentations.
-- `powerbi/` — Ready-to-load `olist_powerbi_master_model.csv` and `PowerBI_Setup_and_DAX_Guide.md` with copy-paste DAX formulas.
-- `olist_analytics.db` — Pre-built SQLite database with all 6 tables loaded and ready to query.
+- `data/` — Relational Olist datasets (orders, order_items, customers, sellers, products, reviews).
+- `sql/` — Production-ready DuckDB SQL queries covering fulfillment turnaround times, SLA breaches, and review score degradation.
+- `scripts/` — End-to-end Python pipeline (`run_olist_pipeline.py`) that ingests raw CSVs into DuckDB and builds the denormalized Power BI dataset.
+- `outputs/` — Pre-generated summary CSVs and high-resolution Matplotlib/Seaborn charts.
+- `powerbi/` — Master model CSV (`olist_powerbi_master_model.csv`) and setup guide with DAX formulas (`PowerBI_Setup_and_DAX_Guide.md`).
 
-## How to Use
-1. **Upload to GitHub:** Upload this entire folder to a new GitHub repository (`olist-ecommerce-analytics`) so recruiters can inspect your SQL, Python, and charts immediately.
-2. **Open in Power BI Desktop:** Click **Get Data -> Text/CSV**, select `powerbi/olist_powerbi_master_model.csv`, and paste the DAX measures from `powerbi/PowerBI_Setup_and_DAX_Guide.md`.
-3. **Scale to Full 100K Kaggle Dataset:** Replace the CSVs in `data/` with the Kaggle Olist files and run `python scripts/run_olist_pipeline.py` — all queries work identically without changing a single line of code.
+---
+
+## Key Business Insights & Visuals
+
+1. **SLA Breaches by State:** Delivery delays heavily concentrate in specific northern and remote geographic regions, severely impacting customer trust.
+![SLA Breach by State](outputs/chart1_sla_breach_by_state.png)
+
+2. **Review Score Degradation:** Customer review scores drop off sharply the moment an order crosses its estimated delivery date by more than 2 days.
+![Review Score vs Delay](outputs/chart2_review_score_vs_delay.png)
+
+3. **Freight-to-Price Ratio:** Certain heavy or low-cost product categories suffer from disproportionately high freight-to-price ratios, acting as a deterrent for buyers.
+![Freight Ratio by Category](outputs/chart3_freight_ratio_by_category.png)
+
+---
+
+## How to Reproduce or Run
+1. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/VinithaKamidi/olist-ecommerce-analytics.git](https://github.com/VinithaKamidi/olist-ecommerce-analytics.git)
